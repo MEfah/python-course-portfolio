@@ -3,15 +3,15 @@
 """
 
 from django.db import models
-
 from base.models import TimeStampMixin
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Job(TimeStampMixin):
     """
     Модель для хранения данных о работах.
     """
-
+    
     image = models.ImageField(
         upload_to="images/",
         verbose_name="Изображение",
@@ -19,9 +19,12 @@ class Job(TimeStampMixin):
     )
     description = models.CharField(
         max_length=255,
-        verbose_name="Описание",
+        verbose_name="Краткое описание",
         help_text="Краткое описание выполненной работы",
     )
+    details = RichTextUploadingField(
+        verbose_name="Подробное описание",
+        help_text="Подробное описание выполненной работы")
 
     class Meta:
         verbose_name = "Выполненная работа"
