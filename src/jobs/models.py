@@ -11,7 +11,7 @@ class Job(TimeStampMixin):
     """
     Модель для хранения данных о работах.
     """
-    
+
     image = models.ImageField(
         upload_to="images/",
         verbose_name="Изображение",
@@ -24,7 +24,8 @@ class Job(TimeStampMixin):
     )
     details = RichTextUploadingField(
         verbose_name="Подробное описание",
-        help_text="Подробное описание выполненной работы")
+        help_text="Подробное описание выполненной работы",
+    )
 
     class Meta:
         verbose_name = "Выполненная работа"
@@ -32,7 +33,6 @@ class Job(TimeStampMixin):
 
     def __str__(self) -> str:
         return f'Объект "Выполненная работа" (id={self.pk})'
-
 
     def summary(self) -> str:
         """

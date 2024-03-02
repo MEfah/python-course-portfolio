@@ -36,7 +36,10 @@ class ContactInfoAdmin(admin.ModelAdmin):
         "updated_at",
     )
 
-    search_fields = ("value", "description",)
+    search_fields = (
+        "value",
+        "description",
+    )
 
     list_filter = (
         "created_at",

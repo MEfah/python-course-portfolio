@@ -51,18 +51,14 @@ class ContactInfo(TimeStampMixin):
         (3, "Email"),
     ]
 
-    info_type = models.IntegerField(verbose_name="Тип контактной информации", choices=ContactInfoType)
-
-    description = models.CharField(
-        max_length=255,
-        verbose_name="Описание"
+    info_type = models.IntegerField(
+        verbose_name="Тип контактной информации", choices=ContactInfoType
     )
 
-    value = models.CharField(
-        max_length=255,
-        verbose_name="Значение"
-    )
-    
+    description = models.CharField(max_length=255, verbose_name="Описание")
+
+    value = models.CharField(max_length=255, verbose_name="Значение")
+
     class Meta:
         verbose_name = "Контактная информация"
         verbose_name_plural = "Контактная информация"
