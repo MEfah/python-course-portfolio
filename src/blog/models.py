@@ -38,3 +38,30 @@ class Blog(TimeStampMixin):
         """
 
         return self.publication_date.strftime("%b %e %Y")
+
+
+class ContactInfo(TimeStampMixin):
+    """
+    Модель для хранения данных о контактной информации.
+    """
+
+    ContactInfoType = [
+        (1, "Resume"),
+        (2, "GitHub"),
+        (3, "Email"),
+    ]
+
+    info_type = models.IntegerField(
+        verbose_name="Тип контактной информации", choices=ContactInfoType
+    )
+
+    description = models.CharField(max_length=255, verbose_name="Описание")
+
+    value = models.CharField(max_length=255, verbose_name="Значение")
+
+    class Meta:
+        verbose_name = "Контактная информация"
+        verbose_name_plural = "Контактная информация"
+
+    def __str__(self) -> str:
+        return f'Объект "Контактная информация" (id={self.pk})'

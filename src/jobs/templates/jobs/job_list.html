@@ -6,17 +6,17 @@
 
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
-          <div class="col-lg-6 col-md-8 mx-auto">
-            <p class="fw-light h1">Привет!</p>
-            <p class="lead text-muted">Меня зовут Иван Иванов. <br />Я профессионально занимаюсь разработкой на Python.</p>
-            <p>
-                <img src="{% static 'images/my_photo.jpeg' %}" height="300" alt="Иван Иванов"/>
-            </p>
-            <p>
-              <a href="mailto:username(att)somemailserver(dott)com" class="btn btn-primary my-2">Написать мне</a>
-              <a href="{% url 'blogs' %}" class="btn btn-secondary my-2">Мой блог</a>
-            </p>
-          </div>
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <p class="fw-light h1">Привет!</p>
+                <p class="lead text-muted">Меня зовут Иван Иванов. <br />Я профессионально занимаюсь разработкой на Python.</p>
+                <p>
+                    <img src="{% static 'images/my_photo.jpeg' %}" height="300" alt="Иван Иванов"/>
+                </p>
+                <p>
+                    <a href="mailto:username(att)somemailserver(dott)com" class="btn btn-primary my-2">Написать мне</a>
+                    <a href="{% url 'blogs' %}" class="btn btn-secondary my-2">Мой блог</a>
+                </p>
+            </div>
         </div>
     </section>
 
@@ -29,14 +29,15 @@
                 <div class="col">
                     <div class="card shadow-sm">
                         <img class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                 src="{{ job.image.url }}"
-                                 alt="job image"/>
+                            src="{{ job.image.url }}"
+                            alt="job image"/>
 
                         <div class="card-body">
                             <p class="card-text">{{ job.description }}</p>
+                            <p class="card-text text-muted">{{ job.summary|safe }}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="#" type="button" class="btn btn-sm btn-outline-secondary">Подробнее</a>
+                                    <a href="{% url 'job' job.id %}" type="button" class="btn btn-sm btn-outline-secondary">Подробнее</a>
                                 </div>
                                 <small class="text-muted"><p>{{ job.created_at|date:"d E Y" }}</p></small>
                             </div>
